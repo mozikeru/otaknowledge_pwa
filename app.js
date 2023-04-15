@@ -84,5 +84,3 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
-
-(adsbygoogle = window.adsbygoogle || []).push({});
