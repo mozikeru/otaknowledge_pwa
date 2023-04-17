@@ -12,6 +12,7 @@
   <div class="container">
     <h1>教養の一覧</h1>
     <button id="updateButton">一覧を更新</button>
+    <button id="InstallBtn" style="display:none">アプリをインストールする</button>
     <ul id="list"></ul>
   </div>
   <div id="webview-container" class="hidden">
@@ -20,4 +21,10 @@
   </div>
   <script src="app.js"></script>
 </body>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then((reg) => { console.log('SW registered.', reg); });
+  }
+</script>
 </html>
