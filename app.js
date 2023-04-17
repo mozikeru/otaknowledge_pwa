@@ -96,7 +96,7 @@ function registerInstallAppEvent(elem){
     console.log("beforeinstallprompt: ", event);
     event.preventDefault(); //バナー表示をキャンセル
     elem.promptEvent = event; //eventを保持しておく
-    elem.style.display = "block"; //要素を表示する
+    elem.style.display = "inline-block"; //要素を表示する
     return false;
   });
   //インストールダイアログの表示処理
