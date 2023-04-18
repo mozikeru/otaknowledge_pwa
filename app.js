@@ -110,8 +110,16 @@ document.getElementById('installBtn').addEventListener('click', () => {
 });
 */
 
-//バナーの代わりに表示するボタンを登録する
-registerInstallAppEvent(document.getElementById("InstallBtn"));
+if (isIOS()) {
+  registerIOSInstallInstructions(document.getElementById("InstallBtn"));
+} else {
+  registerInstallAppEvent(document.getElementById("InstallBtn"));
+}
+
+function registerIOSInstallInstructions(elem) {
+  elem.style.display = "inline-block";
+  elem.addEventListener("click", showIOSInstallInstructions);
+}
 
 //バナー表示をキャンセルし、代わりに表示するDOM要素を登録する関数
 //引数１：イベントを登録するHTMLElement
@@ -158,13 +166,3 @@ function showIOSInstallInstructions() {
   }
 }
 
-if (isIOS()) {
-  registerIOSInstallInstructions(document.getElementById("InstallBtn"));
-} else {
-  registerInstallAppEvent(document.getElementById("InstallBtn"));
-}
-
-function registerIOSInstallInstructions(elem) {
-  elem.style.display = "inline-block";
-  elem.addEventListener("click", showIOSInstallInstructions);
-}
