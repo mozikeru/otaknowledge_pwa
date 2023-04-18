@@ -136,6 +136,7 @@ function isIOS() {
 }
 
 function showIOSInstallInstructions() {
+    alert("アプリをインストールする方法:\n\n1. Safariの下部にある「共有」ボタンをタップしてください。\n2. 「ホーム画面に追加」オプションを選択してください。\n3. アプリの名前を確認し、「追加」をタップしてください。");
     var instructions = document.getElementById("ios-install-instructions");
     instructions.style.display = "block";
   
