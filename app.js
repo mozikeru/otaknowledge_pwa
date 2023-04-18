@@ -131,11 +131,11 @@ function isIOS() {
     else if ( (/iPad|iPhone|iPod/.test(ua)) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ){
       return true;
     }  
-    return false;
+      return false;
+  }
 }
 
 function showIOSInstallInstructions() {
-  function showIOSInstallInstructions() {
     var instructions = document.getElementById("ios-install-instructions");
     instructions.style.display = "block";
   
@@ -143,6 +143,4 @@ function showIOSInstallInstructions() {
     closeButton.addEventListener("click", function () {
       instructions.style.display = "none";
     });
-  }
 }
-
