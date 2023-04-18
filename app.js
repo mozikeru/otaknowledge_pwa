@@ -87,7 +87,6 @@ if ('serviceWorker' in navigator) {
 
 if (isIOS()) {
   registerIOSInstallInstructions(document.getElementById("InstallBtn"));
-  alert("1");
 } else {
   registerInstallAppEvent(document.getElementById("InstallBtn"));
 }
