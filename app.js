@@ -85,10 +85,38 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-if (isIOS()) {
-  registerIOSInstallInstructions(document.getElementById("InstallBtn"));
+
+function isIOSPWA() {
+  return (
+    navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
+    navigator.userAgent.match(/AppleWebKit/) &&
+    window.matchMedia('(display-mode: standalone)').matches
+  );
+}
+
+function isAndroidPWA() {
+  return (
+    navigator.userAgent.match(/Android/) &&
+    window.matchMedia('(display-mode: standalone)').matches
+  );
+}
+
+if (isIOSPWA()) {
+  document.getElementById("InstallBtn").style.display = "none";
+  console.log('iOS おそらくPWAがインストール済みです。');
 } else {
-  registerInstallAppEvent(document.getElementById("InstallBtn"));
+  if (isAndroidPWA()) {
+    document.getElementById("InstallBtn").style.display = "none";
+    console.log('Android おそらくPWAがインストール済みです。');
+  } else {
+    if (isIOS()) {
+      registerIOSInstallInstructions(document.getElementById("InstallBtn"));
+      console.log('iOS PWAはインストールされていないか、ブラウザで実行されています。');
+    } else {
+      registerInstallAppEvent(document.getElementById("InstallBtn"));
+      console.log('Android PWAはインストールされていないか、ブラウザで実行されています。');
+    }
+  }
 }
 
 function registerIOSInstallInstructions(elem) {
