@@ -131,13 +131,12 @@ function isIOS() {
 }
 
 function showIOSInstallInstructions() {
-  function showIOSInstallInstructions() {
+  var instructions = document.getElementById("ios-install-instructions");
+  instructions.style.display = "block";
+
+  var closeButton = document.getElementById("close-instructions");
+  closeButton.addEventListener("click", function () {
+    instructions.style.display = "none";
     alert("アプリをインストールする方法:\n\n1. Safariの下部にある「共有」ボタンをタップしてください。\n2. 「ホーム画面に追加」オプションを選択してください。\n3. アプリの名前を確認し、「追加」をタップしてください。");
-    instructions.style.display = "block";
-  
-    var closeButton = document.getElementById("close-instructions");
-    closeButton.addEventListener("click", function () {
-      instructions.style.display = "none";
-    });
-  }
+  });
 }
