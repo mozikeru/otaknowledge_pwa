@@ -87,6 +87,7 @@ if ('serviceWorker' in navigator) {
 
 if (isIOS()) {
   registerIOSInstallInstructions(document.getElementById("InstallBtn"));
+  alert("1");
 } else {
   registerInstallAppEvent(document.getElementById("InstallBtn"));
 }
@@ -131,7 +132,6 @@ function isIOS() {
 
 function showIOSInstallInstructions() {
   function showIOSInstallInstructions() {
-    alert();
     alert("アプリをインストールする方法:\n\n1. Safariの下部にある「共有」ボタンをタップしてください。\n2. 「ホーム画面に追加」オプションを選択してください。\n3. アプリの名前を確認し、「追加」をタップしてください。");
     instructions.style.display = "block";
   
