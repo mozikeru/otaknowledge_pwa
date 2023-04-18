@@ -123,10 +123,15 @@ function registerInstallAppEvent(elem){
 
 // iOS判定
 function isIOS() {
-  return (
-    ["iPad Simulator", "iPhone Simulator", "iPod Simulator", "iPad", "iPhone", "iPod"].includes(navigator.platform) ||
-    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-  );
+  const isIOS = () => {
+    const ua = navigator.userAgent
+    if (/android/i.test(ua)) {
+      return false
+    }
+    else if ( (/iPad|iPhone|iPod/.test(ua)) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ){
+      return true;
+    }  
+    return false;
 }
 
 function showIOSInstallInstructions() {
