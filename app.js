@@ -85,31 +85,6 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-/*
-let installPromptEvent;
-
-window.addEventListener('beforeinstallprompt', (event) => {
-  event.preventDefault();
-  installPromptEvent = event;
-  document.getElementById('installBtn').hidden = false;
-});
-
-document.getElementById('installBtn').addEventListener('click', () => {
-  if (!installPromptEvent) return;
-  document.getElementById('installBtn').hidden = true;
-  installPromptEvent.prompt();
-
-  installPromptEvent.userChoice.then((choiceResult) => {
-    if (choiceResult.outcome === 'accepted') {
-      console.log('User accepted the install prompt');
-    } else {
-      console.log('User dismissed the install prompt');
-    }
-    installPromptEvent = null;
-  });
-});
-*/
-
 if (isIOS()) {
   registerIOSInstallInstructions(document.getElementById("InstallBtn"));
 } else {
