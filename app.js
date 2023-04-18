@@ -85,6 +85,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+/*
 let installPromptEvent;
 
 window.addEventListener('beforeinstallprompt', (event) => {
@@ -107,8 +108,8 @@ document.getElementById('installBtn').addEventListener('click', () => {
     installPromptEvent = null;
   });
 });
+*/
 
-/*
 //バナーの代わりに表示するボタンを登録する
 registerInstallAppEvent(document.getElementById("InstallBtn"));
 
@@ -136,4 +137,34 @@ function registerInstallAppEvent(elem){
   //ダイアログ表示を行うイベントを追加
   elem.addEventListener("click", installApp);
 }//end registerInstallAppEvent
-*/
+
+// iOS判定
+function isIOS() {
+  return (
+    ["iPad Simulator", "iPhone Simulator", "iPod Simulator", "iPad", "iPhone", "iPod"].includes(navigator.platform) ||
+    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  );
+}
+
+function showIOSInstallInstructions() {
+  function showIOSInstallInstructions() {
+    var instructions = document.getElementById("ios-install-instructions");
+    instructions.style.display = "block";
+  
+    var closeButton = document.getElementById("close-instructions");
+    closeButton.addEventListener("click", function () {
+      instructions.style.display = "none";
+    });
+  }
+}
+
+if (isIOS()) {
+  registerIOSInstallInstructions(document.getElementById("InstallBtn"));
+} else {
+  registerInstallAppEvent(document.getElementById("InstallBtn"));
+}
+
+function registerIOSInstallInstructions(elem) {
+  elem.style.display = "inline-block";
+  elem.addEventListener("click", showIOSInstallInstructions);
+}

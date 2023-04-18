@@ -9,17 +9,31 @@
   <title>オタクの基礎教養</title>
 </head>
 <body>
+
   <div class="container">
     <h1>教養の一覧</h1>
     <button id="updateButton" syle="display: inline-block;">一覧を更新</button>
     <button id="InstallBtn" style="display: inline-block;">アプリをインストールする</button>
     <ul id="list"></ul>
   </div>
+  
   <div id="webview-container" class="hidden">
     <button id="close-webview">戻る</button>
     <iframe id="webview" src="" frameborder="0"></iframe>
   </div>
   <script src="app.js"></script>
+
+  <!-- モーダルウィンドウのコンテンツ -->
+  <div id="ios-install-instructions" style="display:none;">
+    <h3>アプリをインストールする方法:</h3>
+    <ol>
+      <li>Safariの下部にある「共有」ボタンをタップしてください。</li>
+      <li>「ホーム画面に追加」オプションを選択してください。</li>
+      <li>アプリの名前を確認し、「追加」をタップしてください。</li>
+    </ol>
+    <button id="close-instructions">閉じる</button>
+  </div>
+
 </body>
 
 </html>

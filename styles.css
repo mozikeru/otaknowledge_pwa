@@ -1,4 +1,4 @@
-body {
+  body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -54,3 +54,38 @@ body {
     border: none;
   }
   
+    /* 枠の色を定義します */
+  .AmazonSearchTB1 table {
+    border: 1px solid #000000; 
+    background-color : #ff6600;
+    color: #000000;
+    margin: 0px; padding: 0px; font-size: 11px;
+  }
+  /* Ads by drk7.jp の font 色を定義します */
+  .AmazonSearchTB2 a,
+  .AmazonSearchTB2 a:link,
+  .AmazonSearchTB2 a:link:hover,
+  .AmazonSearchTB2 a:link:active {
+    color: #ffffff; text-decoration: underline ; background: none;
+  }
+  .AmazonSearchTB2 table{ border: none; margin: 0px; padding: 1px; }
+  /* 広告部分の背景色を定義します */
+  .AmazonSearchTB3 table{
+    background-color : #ffffff;
+    border: none; margin: 0px; padding: 3px;
+  }
+  /* 商品名のfont定義 */
+  .AmaS_title a,
+  .AmaS_title a:link,
+  .AmaS_title a:link:hover,
+  .AmaS_title a:link:active {
+    color: #004499;
+    text-decoration: underline ; background: none;
+    font-weight: bold;
+  }
+  /* 値段のfont定義 */
+  .AmaS_price { color: #006600; font-weight: bold; }
+  /* 説明文のfont定義 */
+  .AmaS_com { color: #000000; }
+  /* 画像のボーダー定義 */
+  .AmaS_img img{ border: 1px solid #aaaaaa; }
