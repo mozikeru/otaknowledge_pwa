@@ -87,12 +87,20 @@ if ('serviceWorker' in navigator) {
 
 // ユーザーエージェントを元にOSを判定し、インストールボタンの挙動切り替え。
 // iOSの場合インストールは手動なのでその方法をアラートで表示するのみ
-// Andoridはインストールを促すバナー表示動作をフックしてインストールボタンを表示(インストール済だとバナー出ないのでインストールボタンも非表示という流れ)。
-// iOSはインストール済かどうかに限らずWEBで見るとインストールボタン表示されてしまうが、アプリから起動するとユーザーエージェント変わるのでAndoridと同じ挙動になりボタン非表示になるという方針
+// Andoridはインストールを促すバナー表示動作をフックしてインストールボタンを表示
+// iOSはインストール済かどうかに限らずWEBで見るとインストールボタン表示されてしまうが、アプリから起動するとユーザーエージェント変わるのでボタン非表示になるという方針
 if (isIOS()) {
-  registerIOSInstallInstructions(document.getElementById("InstallBtn"));
+  if (isIOSPWA()) {
+    console.log('おそらくPWAがインストール済みです。');
+  } else {
+    registerIOSInstallInstructions(document.getElementById("InstallBtn"));
+  }
 } else {
-  registerInstallAppEvent(document.getElementById("InstallBtn"));
+  if (isAndroidPWA()) {
+    console.log('おそらくPWAがインストール済みです。');
+  } else {
+    registerInstallAppEvent(document.getElementById("InstallBtn"));
+  }
 }
 
 
@@ -137,3 +145,21 @@ function isIOS() {
 function showIOSInstallInstructions() {
   alert("アプリをインストールする方法:\n\n1. Safariでアクセスしてください。\n2. Safariの「共有」ボタンをタップしてください。\n3. 「ホーム画面に追加」を選択してください。\n4. アプリの名前を確認し、「追加」をタップしてください。");
 }
+
+
+function isIOSPWA() {
+  return (
+    navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
+    navigator.userAgent.match(/AppleWebKit/) &&
+    window.matchMedia('(display-mode: standalone)').matches
+  );
+}
+
+
+function isAndroidPWA() {
+  return (
+    navigator.userAgent.match(/Android/) &&
+    window.matchMedia('(display-mode: standalone)').matches
+  );
+}
+
