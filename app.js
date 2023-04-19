@@ -96,11 +96,7 @@ if (isIOS()) {
     registerIOSInstallInstructions(document.getElementById("InstallBtn"));
   }
 } else {
-  if (isAndroidPWA()) {
-    console.log('おそらくPWAがインストール済みです。');
-  } else {
     registerInstallAppEvent(document.getElementById("InstallBtn"));
-  }
 }
 
 
