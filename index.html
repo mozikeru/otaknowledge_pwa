@@ -30,19 +30,22 @@
 
   <div class="container">
     <h1>教養の一覧</h1>
-    <button id="updateButton" syle="display: inline-block;">一覧を更新</button>
-    <button id="InstallBtn" style="display:none;">アプリをインストールする</button>
     <ul id="list"></ul>
     <a href="https://www.amazon.co.jp/b?_encoding=UTF8&tag=mozikerunet-22&linkCode=ur2&linkId=188ca173608556db3c4b2e5acdfe56cc&camp=247&creative=1211&node=571582">[PR]人文・思想書の一覧</a><br>
     <a href="https://www.amazon.co.jp/gp/search?ie=UTF8&tag=mozikerunet-22&linkCode=ur2&linkId=1af3919f2d52b38791ebc0507432a916&camp=247&creative=1211&index=books&keywords=オカルト">[PR]オカルト書の一覧</a><br>
     <a href="https://www.amazon.co.jp/gp/search?ie=UTF8&tag=mozikerunet-22&linkCode=ur2&linkId=f14a72b7dea49e0f27e9e043cc0fc111&camp=247&creative=1211&index=aps&keywords=都市伝説">[PR]都市伝説の一覧</a><br>
     <a href="https://www.amazon.co.jp/gp/search?ie=UTF8&tag=mozikerunet-22&linkCode=ur2&linkId=4411d42598dfbbf940d8f97fe7819a5e&camp=247&creative=1211&index=aps&keywords=護身">[PR]護身具の一覧</a><br>
   </div>
-  
-  <div id="webview-container" class="hidden">
-    <button id="close-webview">戻る</button>
-    <iframe id="webview" src="" frameborder="0"></iframe>
+  <div class="button-container"></div>
+    <button id="updateButton">一覧を更新</button>
+    <button id="InstallBtn" style="display:none;">アプリをインストールする</button>
   </div>
+
+  <div id="webview-container" class="hidden">
+    <iframe id="webview" src="" frameborder="0"></iframe>
+    <button id="close-webview">戻る</button>
+  </div>
+
   <script src="app.js"></script>
 
 </body>
